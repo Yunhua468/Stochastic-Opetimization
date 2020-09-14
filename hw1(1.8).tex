@@ -1,0 +1,53 @@
+\documentclass{article}
+\title{Exercise 1.8}
+\author{Yunhua Zhao}
+\date{\today}
+\begin{document}
+\maketitle
+Using Taylor series expansion developed
+at $\theta_n$ to J, Taylor series is: 
+
+$$ J(\theta_(n+1)) = J(\theta_n) + \nabla J(\theta_n)(\theta_(n+1)-\theta_n) + \frac{1}{2}(\theta_(n+1)-\theta_n)  ^ \mathrm{ T } \nabla J^2(\xi)(\theta_(n+1)-\theta_n) $$
+
+So: $$ J(\theta_(n+1)) = J(\theta_n) - $\epsilon_n$\nabla J(\theta_n)(\nabla J(\theta_n) ^ \mathrm{T}+\beta_n(\theta_n))+\frac{\epsilon_n ^ 2}{2}(\nabla J(\theta_n) ^ \mathrm{T}+\beta_n(\theta_n)) ^ \mathrm{T}\nabla J^2(\xi)(\nabla J(\theta_n) ^ \mathrm{T}+\beta_n(\theta_n)) $$
+
+name: 
+
+$$ g_n= $\epsilon_n$\nabla J(\theta_n)(\nabla J(\theta_n) ^ \mathrm{T}+\beta_n(\theta_n)) $$ 
+
+$$ h_n=\frac{\epsilon_n ^ 2}{2}(\nabla J(\theta_n) ^ \mathrm{T}+\beta_n(\theta_n)) ^ \mathrm{T}\nabla J^2(\xi)(\nabla J(\theta_n) ^ \mathrm{T}+\beta_n(\theta_n)) $$
+
+So $$ J(\theta_(n+1))=J(\theta_n)-g_n+h_n $$
+
+Because the gradient of J is Lipschitz continuous function, so: 
+
+$$ h_n=\frac{\epsilon}{2}L\mid \nabla J(\theta_n) ^ \mathrm{T}+\beta_n(\theta_n) \mid^2 $$
+
+L is a finite constant.
+
+$$ h_n=\frac{\epsilon}{2}L\sqrt(\nabla J^2(\theta_n)+\beta_n^2(\theta_n)+2\mid\nabla J(\theta_n)\beta_n(\theta_n))\mid $$
+
+Because: the bias is uniformly bounded, so $\beta_n^2(\theta_n)$ is bounded.
+
+And because $\sum\epsilon_n^2 < \infty$ and $ \sum\epsilon_n\theta_n < \infty $
+
+So $h_n$ is summable. According to Lemma 1.1 that $J(\theta_n)$ either diverges to
+$-\infty$ or it converges.
+
+Set $\hat{\theta}$ as an accumulation point of the algorithm, so continuity $J(\theta_n_m)$ converges to $J(\hat{\theta})$ and $\nabla J(\theta_n_m)$ converges to $\nabla J(\hat{\theta})$.
+
+Follows Lemma 1.1, $J$ and $\nabla J(\theta)$ convege and $$g_n$$ is summable, so:
+
+$$ \lim_{n\rightarrow\infty}\sum_{i=1}^{n}\epsilon_mi(\mid\nabla J(\theta_mi)\mid^2+\nabla J(\theta_n)\beta_n(\theta_n))< \infty $$
+
+Because 
+
+$$ \sum_{n=1}^{\infty} = +\infty $$ 
+
+So any accumulation point is a stationary point.
+
+
+
+
+
+\end{document}
