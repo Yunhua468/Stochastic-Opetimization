@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+
+
+\title{Exercise 2.4}
+\author{Yunhua Zhao}
+\date{\today}
+\begin{document}
+\maketitle
+(a) because $$ x_n(t)=V^\epsilon(t_n+t) $$ and $$ V^\epsilon(t)=\theta_m_(_t_) $$
+so $$ x_n(t)=\theta_m_(_t_+_t__n_) $$ 
+   $$ x_n(t+s)=\theta_m_(_t_+_s_+_t__n_) $$
+then $$ x_n(t+s)-x_n(t)=\theta_m_(_t_+_s_+_t_n_) - \theta_m_(_t_+_t_n_) $$
+which $$ =\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$
+Because $X_$\epsilon$(.) is piecewise point, $G(X_$\epsilon$(.)) is also piecewise constant and its jump times are given by $t_n=\sum_{k=1}^{n}\epsilon_k$. Thus the definite integral on $[t_n+t, t_n+t+s] of $G(X_$\epsilon$(.)) is a sum that can be approximation expressed as $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du $$ 
+together  $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du  \approx \sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$ \\
+
+(b) formula $$ x_n(t+s)-x_n(t)=\theta_m_(_t_+_s_+_t_n_)-\theta_m_(_t_+_t_n_)=\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$
+contains $m(q)-m(r)-1$ terms. For $\epsilon$ sufficiently small, set the $\epsilon_b$ is the biggest $\epsilon$ and the $\epsilon_s$ is the smallest $\epsilon$ in interval (r,q) %$m(r)=m(t_n+t)>=\frac{r}{\epsilon}$ and $m(q)=m(t_n+t+s)=<\frac{q}{\epsilon}$, 
+so that the number of terms is bounded by ($\frac{q-r}{\epsilon_b}$, $\frac{q-r}{\epsilon_s}$). This yields, for small $\epsilon$,
+$$  \lvert(x_\epsilon(q)-x_\epsilon(r))\rvert_\infty = \sum_{i=m(r)}^{m(q)-1}\epsilon_iG(\theta_i) $$
+Because G is bounded, let use L to represent G's bounder, so 
+$$  \lvert x_\epsilon(q)-x_\epsilon(r) \rvert_\infty = L\sum_{i=m(r)}^{m(q)-1}\epsilon_i =<\epsilon_b L(q-r)/\epsilon_s$$
+
+To summarize, for $\epsilon$ sufficiently small, we have shown that for any $\eta>0$, we may let $\delta_\eta=\frac{\eta}{L(\epsilon_b/\epsilon_s)}/$ so that it follows that $\lvert x_\epsilon(q)-x_\epsilon(r) \rvert_\infty =<\eta$ wherever $\lvert q-r \rvert =< \delta_\eta(\epsilon_b/\epsilon_s)$.  
+This establishes equicontinuity in the extended sense.\\
+
+(c) 
+
+
+
+\end{document}
