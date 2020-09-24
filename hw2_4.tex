@@ -18,6 +18,7 @@ Because $X_\epsilon(.)$ is piecewise point, $G(X_\epsilon(.))$ is also piecewise
 together  $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du  \approx \sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$ 
 $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du=\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i)+\rho_(\epsilon),                    (2.1)$$ \\
 
+
 (b) formula $$x_n(t+s)-x_n(t)=\theta_{m(t+s+t_n)}-\theta_{m(t+t_n)}=\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$
 contains $m(q)-m(r)-1$ terms. For $\epsilon$ sufficiently small, set the $\epsilon_b$ is the biggest $\epsilon$ and the $\epsilon_s$ is the smallest $\epsilon$ in interval (r,q) %$m(r)=m(t_n+t)>=\frac{r}{\epsilon}$ and $m(q)=m(t_n+t+s)=<\frac{q}{\epsilon}$, 
 so that the number of terms is bounded by ($\frac{q-r}{\epsilon_b}$, $\frac{q-r}{\epsilon_s}$). This yields, for small $\epsilon$,
@@ -27,6 +28,7 @@ $$  \lVert x_\epsilon(q)-x_\epsilon(r) \rVert_\infty = L\sum_{i=m(r)}^{m(q)-1}\e
 
 To summarize, for $\epsilon$ sufficiently small, we have shown that for any $\eta>0$, we may let $\delta_\eta=\frac{\eta}{L(\epsilon_b/\epsilon_s)}/$ so that it follows that $\lVert x_\epsilon(q)-x_\epsilon(r) \rVert_\infty =<\eta$ wherever $\lVert q-r \rVert =< \delta_\eta(\epsilon_b/\epsilon_s)$.  
 This establishes equicontinuity in the extended sense.\\
+
 
 (c) Let $a<t$ and $b>t+s$ and consider $x_{\epsilon_k}(.)$ on (a,b). Set $x_n(0)=\theta_0$ for all k. Therefor, for $\epsilon$ sufficiently small, by (b) formula 2.2,
 $$ {\lvert x_{\epsilon_k}(r) \rvert}_\infty =< {\lvert \theta_0 \rvert}_\infty + rL\frac{\epsilon_b}{\epsilon_s} $$
@@ -38,7 +40,16 @@ Where the first formula follows from the fact that $\rho(\epsilon)$ in (2.1) is 
 of the continuity of $G(\hat{x}(.))$ on (a,b). We arrive for $s>0$ at
 $$ \frac{\hat{x}(t+s)-\hat{x}(t)}{s}=\frac{1}{s}\int_{t}^{t+s}G(\hat{x}(u))du $$
 By continuity of $G(\hat{x}(.))$, taking the limit as s goes to zero, the above right-hand side converges to $G(\hat{x}(t))$, which establishes the ODE in the question for $\hat{x}(.)$. Because G is continuous and bounded on the trajectory $\hat{x}$,  it follows from Theorem 2.1 that the ODE has a unique solution for each initial condition,establishing that all accumulation points have the same limit, proving the claim for the unbiased
-case.
+case. \\
+
+
+(d) if the bias is not 0, then first:
+$$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du=\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i)+\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_i\beta_n(\theta_i)+\rho_(\epsilon) $$
+using the bound on the perturbations, for any $r<q$, 
+$$ \sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_i\beta_n(\theta_i)=<\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_b\beta_n(\theta_i)=(q-r)\mathcal{O}(\epsilon_b) $$
+so this term can be added to the approximation error $\rho_(\epsilon)$ and the proof follows directly.
+
+
 
 
 
