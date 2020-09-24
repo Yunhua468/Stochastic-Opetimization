@@ -9,25 +9,56 @@
 \date{\today}
 \begin{document}
 \maketitle
-(a) because $$ x_n(t)=V^\epsilon(t_n+t) $$ and $$ V^\epsilon(t)=\theta_m_(_t_) $$
-so $$ x_n(t)=\theta_m_(_t_+_t__n_) $$ 
-   $$ x_n(t+s)=\theta_m_(_t_+_s_+_t__n_) $$
-then $$ x_n(t+s)-x_n(t)=\theta_m_(_t_+_s_+_t_n_) - \theta_m_(_t_+_t_n_) $$
+(a) because $$x_{n}(t)=\vartheta^{\epsilon}(t_{n}+t)$$ and $$\vartheta^{\epsilon}(t)=\theta_{m(t)}$$ 
+so $$x_{n}(t)=\theta_{m(t+t_n)}$$ 
+   $$x_{n}(t+s)=\theta_{m(t+s+t_n)} $$
+then $$x_{n}(t+s)-x_{n}(t)=\theta_{m(t+s+t_n)}-\theta_{m(t+t_n)}$$
 which $$ =\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$
-Because $X_$\epsilon$(.) is piecewise point, $G(X_$\epsilon$(.)) is also piecewise constant and its jump times are given by $t_n=\sum_{k=1}^{n}\epsilon_k$. Thus the definite integral on $[t_n+t, t_n+t+s] of $G(X_$\epsilon$(.)) is a sum that can be approximation expressed as $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du $$ 
-together  $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du  \approx \sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$ \\
+Because $X_\epsilon(.)$ is piecewise point, $G(X_\epsilon(.))$ is also piecewise constant and its jump times are given by $t_n=\sum_{k=1}^{n}\epsilon_k$. Thus the definite integral on $[t_n+t, t_n+t+s]$ of $G(X_\epsilon(.))$ is a sum that can be approximation expressed as $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du $$ 
+together  $$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du  \approx \sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$ 
+$$ \int_{t_n+t}^{t_n+t+s}G[x_\epsilon(u)]du=\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i)+\rho_(\epsilon),                    (2.1)$$ \\
 
-(b) formula $$ x_n(t+s)-x_n(t)=\theta_m_(_t_+_s_+_t_n_)-\theta_m_(_t_+_t_n_)=\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$
+(b) formula $$x_n(t+s)-x_n(t)=\theta_{m(t+s+t_n)}-\theta_{m(t+t_n)}=\sum_{i=m(t_n+t)}^{m(t_n+t+s)-1}\epsilon_iG(\theta_i) $$
 contains $m(q)-m(r)-1$ terms. For $\epsilon$ sufficiently small, set the $\epsilon_b$ is the biggest $\epsilon$ and the $\epsilon_s$ is the smallest $\epsilon$ in interval (r,q) %$m(r)=m(t_n+t)>=\frac{r}{\epsilon}$ and $m(q)=m(t_n+t+s)=<\frac{q}{\epsilon}$, 
 so that the number of terms is bounded by ($\frac{q-r}{\epsilon_b}$, $\frac{q-r}{\epsilon_s}$). This yields, for small $\epsilon$,
-$$  \lvert(x_\epsilon(q)-x_\epsilon(r))\rvert_\infty = \sum_{i=m(r)}^{m(q)-1}\epsilon_iG(\theta_i) $$
+$$  \lVert(x_\epsilon(q)-x_\epsilon(r))\rVert_\infty = \sum_{i=m(r)}^{m(q)-1}\epsilon_iG(\theta_i) $$
 Because G is bounded, let use L to represent G's bounder, so 
-$$  \lvert x_\epsilon(q)-x_\epsilon(r) \rvert_\infty = L\sum_{i=m(r)}^{m(q)-1}\epsilon_i =<\epsilon_b L(q-r)/\epsilon_s$$
+$$  \lVert x_\epsilon(q)-x_\epsilon(r) \rVert_\infty = L\sum_{i=m(r)}^{m(q)-1}\epsilon_i =<\epsilon_b L(q-r)/\epsilon_s,                               (2.2)$$
 
-To summarize, for $\epsilon$ sufficiently small, we have shown that for any $\eta>0$, we may let $\delta_\eta=\frac{\eta}{L(\epsilon_b/\epsilon_s)}/$ so that it follows that $\lvert x_\epsilon(q)-x_\epsilon(r) \rvert_\infty =<\eta$ wherever $\lvert q-r \rvert =< \delta_\eta(\epsilon_b/\epsilon_s)$.  
+To summarize, for $\epsilon$ sufficiently small, we have shown that for any $\eta>0$, we may let $\delta_\eta=\frac{\eta}{L(\epsilon_b/\epsilon_s)}/$ so that it follows that $\lVert x_\epsilon(q)-x_\epsilon(r) \rVert_\infty =<\eta$ wherever $\lVert q-r \rVert =< \delta_\eta(\epsilon_b/\epsilon_s)$.  
 This establishes equicontinuity in the extended sense.\\
 
-(c) 
+(c) Let $a<t$ and $b>t+s$ and consider $x_{\epsilon_k}(.)$ on (a,b). Set $x_n(0)=\theta_0$ for all k. Therefor, for $\epsilon$ sufficiently small, by (b) formula 2.2,
+$$ {\lvert x_{\epsilon_k}(r) \rvert}_\infty =< {\lvert \theta_0 \rvert}_\infty + rL\frac{\epsilon_b}{\epsilon_s} $$
+for all $r>0$, which suffices to show that $x_\epsilon$ is uniformly bounder in (a,b). This together with equicontinuity of $x_{\epsilon_k}$ implies by the Ascoli-Arzela Theorem 2.2 that any infinite subsequence of $x_{\epsilon_k}$ has a convergent subsequence with a continuous limit on (a, b). Consider a convergent subsequence along $\epsilon_r \rightarrow 0$, so that $\hat{x}(.)=\lim_{\epsilon_r \rightarrow 0}x_{\epsilon_r}(.)$ (in the sup norm)  and continuous. Then 
+$$ \lim_{\epsilon_r \rightarrow 0}(x_{\epsilon_r}(t+s)-x_{\epsilon_r}(t))=\lim_{\epsilon_r \rightarrow 0}\int_{t}^{t+s}G(x_{\epsilon_r}(u))du $$
+$$ =\int_{t}^{t+s}\lim_{\epsilon_r \rightarrow 0}G(x_{\epsilon_r}(u))du $$
+$$ =\int_{t}^{t+s}G(\hat{x}(u))du $$
+Where the first formula follows from the fact that $\rho(\epsilon)$ in (2.1) is bounded by $L(\epsilon_b+\epsilon_s)$ and thus of order $\mathcal{O}(\epsilon)$, the second formula follows from Lebesgue Dominated Convergence Theorem, and the third formula is a consequence
+of the continuity of $G(\hat{x}(.))$ on (a,b). We arrive for $s>0$ at
+$$ \frac{\hat{x}(t+s)-\hat{x}(t)}{s}=\frac{1}{s}\int_{t}^{t+s}G(\hat{x}(u))du $$
+By continuity of $G(\hat{x}(.))$, taking the limit as s goes to zero, the above right-hand side converges to $G(\hat{x}(t))$, which establishes the ODE in the question for $\hat{x}(.)$. Because G is continuous and bounded on the trajectory $\hat{x}$,  it follows from Theorem 2.1 that the ODE has a unique solution for each initial condition,establishing that all accumulation points have the same limit, proving the claim for the unbiased
+case.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
