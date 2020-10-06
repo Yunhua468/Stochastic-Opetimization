@@ -1,0 +1,91 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+
+
+\title{Exercise 3.2}
+\author{Yunhua Zhao}
+\date{\today}
+\begin{document}
+\maketitle
+
+a) Given initial value $\theta0$, recursively define the feedback process ${Y_n}$ through $$ \theta_{n+1} = \theta_n+\epsilon_nY_n $$
+with either fixed step size $\epsilon$ or decreasing step size, where we typically assume that 
+$$ \sum_{n=1}^{\infty}\epsilon_n = +\infty $$
+$$ \sum_{n=1}^{\infty}\epsilon_n^2 < \infty $$
+and $Y_n$ given via the feedback function
+$$ Y_n = \phi(\xi(\theta_n),\theta_n) $$
+ 
+We assume that all random variables, that is, $\theta0$ and $ ({\xi_n(\theta):n>=0, \theta\in\Theta}) $, are defined on a probability
+space. Running the stochastic approximation algorithm, we observe the underlying
+sequence
+$$ \xi_0(\theta_0), \xi_1(\theta_1),... $$ 
+Here in the problem, $$\\
+
+
+b) set $Y_n=(\xi_{n,1}(\theta_n),\xi_{n,2}(\theta_n))^\intercal$ are the independent sequences of unbiased estimators of the target vector field:
+$$ \xi_n(\theta_n) = (1-\theta_n, -\theta_n) $$
+
+
+c) \textbf{Under} strict monotonicity, if choose A win, $Y_n=\xi_n(\theta_n) = 1-\theta_n$ the chosen direction the gradient is bigger than 0, which is always the grow direction;  \\
+\textbf{And} the probability that B win,  $Y_n=\xi_n(\theta_n) = -\theta_n$ is always a descent direction, which is always the decent direction. \\
+\textbf{So} this means that the field is coercive for the well-posed optimization problem. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
