@@ -21,8 +21,12 @@ We assume that all random variables, that is, $\theta0$ and $ ({\xi_n(\theta):n>
 space. Running the stochastic approximation algorithm, we observe the underlying
 sequence
 $$ \xi_0(\theta_0), \xi_1(\theta_1),... $$ 
-Here in the problem, $$\\
-
+Here in the problem, 
+$$ \xi_1(\theta_1) = (1-\theta_0, \theta_0) $$
+$$ \xi_2(\theta_2) = (1-\theta_1, \theta_1) $$
+$$ \xi_3(\theta_3) = (1-\theta_2, \theta_2) $$
+$$ \xi_2(\theta_4) = (1-\theta_3, \theta_3) $$
+and so on, ...  \\
 
 b) set $Y_n=(\xi_{n,1}(\theta_n),\xi_{n,2}(\theta_n))^\intercal$ are the independent sequences of unbiased estimators of the target vector field:
 $$ \xi_n(\theta_n) = (1-\theta_n, -\theta_n) $$
