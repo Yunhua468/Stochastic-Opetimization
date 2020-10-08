@@ -86,9 +86,41 @@ $ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =-\nabla J(\theta_n) $
 \end{flushleft} 
 
 
+\textbf {Mohamed4.3}  \\
+\begin{flushleft}
+$E[M_{n+1}|\mathfrak{F}_n] $ \\
+$= E[(M_n+\epsilon_{n+1} \delta M_{n+1})|\mathfrak{F}_n]$  \\
+$= E[M_n|\mathfrak{F}_n]+\epsilon_{n+1}E[\delta M_{n+1}|\mathfrak{F}_n]]$  \\
+$= E[M_n|\mathfrak{F}_n]+\epsilon_{n+1}E[(y_{n+1}-E[y_{n+1}|\mathfrak{F}_n])|\mathfrak{F}_n] $  \\
+$= E[M_n|\mathfrak{F}_n]+\epsilon_{n+1}E[y_{n+1}|\mathfrak{F}_n]-\epsilon_{n+1}E[E[(y_{n+1}|\mathfrak{F}_n)|\mathfrak{F}_n]] $ \\
+
+Because $$\mathfrak{F}_{n-1} \in \mathfrak{F}_n$$
+
+$=E[M_n|\mathfrak{F}_{n-1}]+\epsilon_{n+1}E[y_{n+1}|\mathfrak{F}_n]-\epsilon_{n+1}E[y_{n+1}|\mathfrak{F}_n]$ \\
+Here: 
+$$ E[M_n|\mathfrak{F}_{n-1}] = M_n $$
+And
+$$ \epsilon_{n+1}E[y_{n+1}|\mathfrak{F}_n]-\epsilon_{n+1}E[y_{n+1}|\mathfrak{F}_n] = 0 $$
+So:
+$$ E[M_{n+1}|\mathfrak{F}_n] = M_n $$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{flushleft} 
 
 
 
