@@ -2,6 +2,7 @@
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
 \usepackage{mathtools}
+\usepackage{comment}
 
 
 \title{Exercise 3.2+4.4}
@@ -38,7 +39,68 @@ c) \textbf{Under} strict monotonicity, if choose A win, $Y_n=\xi_n(\theta_n) = 1
 \textbf{And} the probability that B win,  $Y_n=\xi_n(\theta_n) = -\theta_n$ is always a descent direction, which is always the decent direction. \\
 \textbf{So} this means that the field is coercive for the well-posed optimization problem.  \\
 
+\begin{comment}
 \textbf {4.4}  \\
+Because $$J(\theta) = \frac{1}{2}E[(Z(X)-(\theta_1+\theta_2X))^2]) \ \ (1)$$
+And $$ \theta_{n+1} = \theta_n-\epsilon_n\nabla_\theta J(\theta_n)^\intercal = \theta_n+\epsilon_nE[(Z(X)-\theta_{n,1}-\theta_{n,2}X)(1,X)^\intercal] \ \ (2) $$
+From (2), we notice $$ Y_n = (\xi_n-\theta_n(1)-\theta_n(2)x_n)(1,x_n)^\intercal \ \ (3)$$
+$Y_n$ satisfies the Martingale difference noise model  \\
+The updates $Y_n$ are random variables.  \\
+For each $x_n$ we obtain a corresponding random observation $ \xi_n=Z(x_n)$ \\
+The underlying process is just a sequence of iid random pairs that are statistically independent of $\theta$. Algorithm (4.1) then becomes:
+$$ \theta_{n+1,1} = \theta_{n,1}-\epsilon_n(\xi_n-\theta_{n,1}-\theta_{n,2}x_n) \ \ (4)$$
+$$ \theta_{n+1,2} = \theta_{n,2}-\epsilon_n(\xi_n-\theta_{n,1}-\theta_{n,2}x_n) \ \ (5)$$
+From the question, 
+$$ \nabla J(\theta) = (-E[Z(X)-\theta_1-\theta_2X], -E[XZ(X)-\theta_1X-\theta_2X^2])^\intercal  \ \ (6) $$
+So
+$$ -\nabla J(\theta) = (E[Z(X)-\theta_1-\theta_2X], E[XZ(X)-\theta_1X-\theta_2X^2])^\intercal  \ \ (7) $$
+
+The difference between the trend and the realization is denoted by 
+$$ \delta M_n = Y_n-E[Y_n|\mathfrak{F_{n-1}}] $$
+Admits a Taylor approximation to $E[Y_n|\mathfrak{F_{n-1}}]$ 
+$$ E[Y_n|\mathfrak{F_{n-1}}] = \frac{J(\theta_n+c_n)-J(\theta_n)}{2c_n} - \frac{J(\theta_n-c_n)-J(\theta_n)}{2c_n} $$
+According to example 4.1 $$ = $$
+\end{comment}
+
+
+
+\textbf {Mohamed4.4}  \\
+Show that  for a random variable x with finite variance
+$$ \nabla J(\theta) = (-E[Z(X)-\theta_1-\theta_2X], -E[XZ(X)-\theta_1X-\theta_2X^2])^\intercal  \ \ (1) $$
+$$J(\theta) = \frac{1}{2}E[(Z(X)-(\theta_1+\theta_2X))^2] \ \ (2)$$
+Which we could get:
+$$\frac{\partial J(\theta)}{\partial \theta_1} = -E[Z(X)-(\theta_1-\theta_2X)] \ \ (3) $$
+$$\frac{\partial J(\theta)}{\partial \theta_2} = -E[XZ(X)-\theta_1X-\theta_2X^2]  \ \ (4)$$
+For each $x_n$ we obtain a corresponding random observation $ \xi_n=Z(x_n)$ \\
+$$ E(Z(x_n)) = h(x_n) $$
+The feedback function is 
+ $$ Y_n = (\xi_n-\theta_n(1)-\theta_n(2)x_n)(1,x_n)^\intercal \ \ (5)$$
+ 
+Because:
+\begin{flushleft}
+$ E[Y_n|\mathfrak{F_{n-1}}] = E[(\xi_n-\theta_n(1)-\theta_n(2)x_n)(1,x_n)^\intercal] $  \\
+$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =E[Z(x_n)-\theta_n(1)-\theta_n(2)x_n, x_nZ(x_n)-\theta_n(1)x_n-\theta_n(2)x_n^2] $  \\
+$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =(E[Z(x_n)-\theta_n(1)-\theta_n(2)x_n], E[x_nZ(x_n)-\theta_n(1)x_n-\theta_n(2)x_n^2]) $  \\
+$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =-\nabla J(\theta_n(1),\theta_n(2)) $  \\
+$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =-\nabla J(\theta_n) $
+\end{flushleft} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
