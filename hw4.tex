@@ -1,0 +1,288 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{comment}
+
+
+\title{Exercise 6.3}
+\author{Yunhua Zhao}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{6.3}
+\subsection{a}
+\textbf{a6.Show that $ \theta_{n+1}=\theta_n+\epsilon Y_n $, $ Y_n=D(\theta_n)-\xi_n $ satisfies the assumptions of Theorem 6.1.}  \\
+\textbf{Proof $E[\delta M_n^\epsilon(\delta M_n^\epsilon)^T1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon]$ is symmetric matrix}
+Because:
+$$ \delta M_n^\epsilon=Y_n^\epsilon-g(\xi_{n-1}^\epsilon,\theta_n^\epsilon) $$
+And:
+$$ g(\xi_{n-1}^\epsilon,\theta_n^\epsilon)=E[Y_n^\epsilon|\mathfrak{F}_{n-1}^\epsilon] $$
+So:
+$$ \delta M_n^\epsilon=Y_n^\epsilon-E[Y_n^\epsilon|\mathfrak{F}_{n-1}^\epsilon] $$
+Based on:
+$$ Y_n=D(\theta_n)-\xi_n $$
+Then:
+$$ E[\delta M_n^\epsilon(\delta M_n^\epsilon)^T1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon] = E[(Y_n^\epsilon-E[Y_n^\epsilon|\mathfrak{F}_{n-1}^\epsilon]) (Y_n^\epsilon-E[Y_n^\epsilon|\mathfrak{F}_{n-1}^\epsilon])^T1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon] $$
+Because $D(\theta_n)$ and $\xi_n$ are random variable, so $Y_n$ is random variable also.
+$$ E[\delta M_n^\epsilon(\delta M_n^\epsilon)^T1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon] = E[(Y_n^\epsilon-E[Y_n^\epsilon]) (Y_n^\epsilon-E[Y_n^\epsilon])^T1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon] $$
+$$ = E[(Y_n^\epsilon-E[Y_n^\epsilon])((Y_n^\epsilon)^T-(E[Y_n^\epsilon])^T)1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon] $$
+$$ = E[(Y_n^\epsilon-E[Y_n^\epsilon])((Y_n^\epsilon)^T-E[(Y_n^\epsilon)^T])1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon] $$
+For simplify, the following processes ignore $\epsilon$ for a second, but remember it is exist all the time.  
+$$ = E[(Y_nY_n^T-E[Y_n]Y_n^T-Y_nE[Y_n^T]+E[Y_n]E[Y_n^T])1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon] $$
+$$ = E[Y_nY_n^T-E[E[Y_n]Y_n^T]-E[-Y_nE[Y_n^T]]+E[E[Y_n]E[Y_n^T]]] $$
+$$ = E[Y_nY_n^T]-E[Y_n]E[Y_n^T]-E[Y_n]E[Y_n^T]+E[Y_n]E[Y_n^T] $$
+Because $ Y_nY_n^T $ is symmetric matrix, $ E[Y_n]E[Y_n^T] $is also symmetric matrix, so $E[\delta M_n^\epsilon(\delta M_n^\epsilon)^T1_{{||\theta_n^\epsilon-\theta^*||=<\rho}}|\mathfrak{F}_{n-1}^\epsilon]$ is symmetric matrix.  \\
+
+
+\textbf{a7.Where the error term satisfies $ E[\rho_1(\theta,\xi_n^\epsilon)]=\mathcal{O}(||\theta-\theta^*||^2) $, as $n\rightarrow \infty$ $ \epsilon \rightarrow 0$}  \\
+$$ Y_n = D(\theta_n)-\xi_n $$	
+because $Y_n$ is random value, so 
+$$ E[Y_n^\epsilon|\mathfrak{F}_{n-1}^\epsilon] = E[Y_n^\epsilon] $$
+$$ = E[D(\theta_n)-\xi_n] = E[D(\theta_n)] - E[\xi_n|\theta_n] = E[D(\theta_n)] - S(\theta_n) $$
+Then
+$$ \nabla_\theta^2g(\theta^*, \xi) = E[\nabla^2D(\theta^*)] - \nabla^2 S(\theta^*) $$
+$$ g(\theta,\xi) = g(\theta^*, \xi)+\nabla_\theta g(\theta^*,\xi)^T(\theta-\theta^*)+\rho_1(\theta, \xi) $$
+and
+$$ E[Y_n^\epsilon|\mathfrak{F}_{n-1}^\epsilon]  = g(\xi_{n-1}^\epsilon,\theta_n^\epsilon) $$
+So
+$$ g(\theta,\xi) = g(\theta^*, \xi)+\nabla_\theta g(\theta^*,\xi)^T(\theta-\theta^*) + \frac{1}{2}\nabla_\theta^2g(\theta^*, \xi)(\theta-\theta^*)^2+\rho_2(\theta, \xi) $$
+$$ E[\rho_1(\theta,\xi_n^\epsilon)] = E[\frac{1}{2}\nabla_\theta^2g(\theta^*, \xi)(\theta-\theta^*)^2+\rho_2(\theta, \xi)] $$
+Because $E[\rho_2(\theta, \xi)] \rightarrow 0$ and $\nabla_\theta^2g(\theta^*,\xi) = E[\nabla^2D(\theta^*)] - \nabla^2 S(\theta^*) > 0 $ but limited, so  $E[\rho_1(\theta,\xi_n^\epsilon)]=\mathcal{O}(||\theta-\theta^*||^2)$ \\
+
+\textbf{a8.There is a Hurwitz matrix A (i.e. a matrix where all the eigenvalues have a negative real part) such that $ \lim_{m\rightarrow\infty}\frac{1}{m}\sum\limits_{i=n}^{n+m-1}E[\nabla_\theta g(\xi_{n-1}^\epsilon,\theta^*)^T-A]=0 $}  \\
+$$ \nabla_\theta g(\theta^*, \xi) = E[\nabla D(\theta^*)] - \nabla S(\theta^*) $$
+$$ E[\nabla_\theta g(\xi_{n-1}^\epsilon,\theta^*)^T] = E[E[\nabla_\theta D(\theta_n^*)]^T] - E[\nabla_\theta S(\theta_n^*)^T] = E[\nabla_\theta D(\theta_n^*)]^T - E[\nabla_\theta S(\theta_n^*)^T] = E[\nabla_\theta D(\theta_n^*)^T-\nabla_\theta S(\theta_n^*)^T] $$
+
+\subsection{b}
+\textbf{Use $ d = 5 $ for the demand function. Your economics guru has estimated that $ \theta^*\thickapprox 1$ and $ S'(\theta^*)\thickapprox4.5$. With this information, apply Theorem 6.1 to identify the values of $a$, $\sigma^2$ for the (approximate) limit Orstein Uhlenbeck process $U(t)$, and find $T$ such that $e^{-aT}\thickapprox0.0001$}  \\
+$$ D(\theta) = \theta^{-5} $$ 
+$$ D(\theta^*\thickapprox 1) \thickapprox S(\theta^*\thickapprox 1) $$
+$$ S'(\theta^*)\thickapprox4.5 $$
+$$ D'(\theta^*)<S'(\theta^*) $$
+$$ D'(\theta^*)<4.5 $$
+$$ U_n^\epsilon  = \frac{\theta_n^\epsilon-1}{\sqrt{\epsilon}} $$
+$$ U^\epsilon(t) = U_n^\epsilon; \space\space t\in[n\epsilon, (n+1)\epsilon] $$
+
+
+\subsection{c}
+\textbf{Show that $\epsilon\thickapprox0.0005$ yields a precision of 0.01(half width of the approximate confidence interval after $T/\epsilon$ iterations, with confidence level $\alpha=0.05$). }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
