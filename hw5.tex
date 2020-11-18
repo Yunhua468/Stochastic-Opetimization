@@ -1,0 +1,159 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{comment}
+
+
+\title{Exercise 8.15}
+\author{Yunhua Zhao}
+\date{\today}
+\begin{document}
+\maketitle
+
+\textbf{a. Show that the reliability $\varnothing$ of Figure 8.2 can be expressed as:}
+$$ \varnothing(X_1,...,X_n) = X_1X_5max(X_2,X_3X_4) $$
+$X_i:$ The indicator that component i is working, then $X_i$ is either the value 
+$$ X_i = \left \{ \begin{array}{rcl}0 & \mbox{not working} \\ 1 & \mbox{working} \end{array}\right $$
+As shown in the Figure 8.2, in order to make the system to work, component 1 and component 5 must work as well; Between component 1 and 5, the system depends on components 2,3 and 4, here there are three paths:
+$$ \left \{ \begin{array}{rcl}2 \\ 2 & \mbox{and} 4 \\ 3 & \mbox{and} 4 \end{array}\right $$
+Because $max(X_2,X_2X_4)$ is same with $X_2$  \\
+then $$ \varnothing(X_1,...,X_5) = X_1max(X_2,X_3X_4)X_5 = X_1X_5max(X_2,X_3X_4) $$
+
+\textbf{b. Consider the representation $X_3 = 1_{\{U\leq \theta\}}$ and show that IPA is biased for $\varnothing$ (8.28)} \\
+Show IPA is biased: $$E[X_3(\theta)] = P(U\leq \theta) = \theta$$ 
+$$\Rightarrow \frac{\partial}{\partial \theta}[E(X_3(\theta))] = 1 $$
+However $X_3(\theta, v)$ is piecewise constant function, jump at $v = \theta$ \\
+So for $\forall w$, such that $U(w)\neq \theta $ \\
+we have $\frac{\partial}{\partial \theta}X_3(\theta,v) = 0$ \\
+As $P(V(w)=\theta)=0$ (when $U(w)\neq \theta$)  \\
+then $E[X_3'(\theta,v)]=0$, \\
+then $1 = \frac{\partial}{\partial \theta}[E(X_3(\theta))] \neq E[\frac{\partial}{\partial \theta}X_3(\theta, v)] = 0$  \\
+then IPA is biased function $X_3$, and consequently is biased as well for $\varnothing$ (8.28)
+
+
+\textbf{c. Calculate the SF estimator for (8.28) and show that it is unbiased for (8.28)} \\
+$X_i$ is Bernoulli $(p_i)$, eg:
+$$ \left \{ \begin{array}{rcl}P(X_i=1)=p_i  \\ P(X_i=0)=1-p_i \end{array}\right $$
+the pdf of $X_i$ is $ f(X_i, p_i) = p_i^i(1-p_i)^{1-X_i} $, $X_i\in{0,1}$  \\
+The density function is given by $f_n$ $\theta=P_3$ \\
+$ L(\theta|x) = f(x,\theta) = \theta^{x_3}(1-\theta)^{1-x_3}\pi_{i\neq 3}p_i^{x_i}(1-p_i)^{1-x_i} $, $x_i\in\{0,1\}$ \\
+$ \varnothing(X_1,...,X_5) = X_1X_5max(X_2,X_3X_4) $ \\
+then $ \varnothing(X_1,...,X_5) = 1 $ only if one of the following\\
+$$ \left \{ \begin{array}{rcl}X = (1,1,1,1,1)  \\ X = (1,1,0,1,1) \\ X = (1,1,1,0,1) \\ X = (1,1,0,0,1) \\ X = (1,0,1,1,1) \end{array}\right $$
+$L(\theta|X)=\theta[p_1p_2p_4p_5+p_1p_2p_5+p_1p_2p_4p_5]+(1-\theta)[p_1p_2p_4p_5+p_1p_2p_5]$  \\
+$\log L(\theta|X) = \log [\theta[p_1p_2p_4p_5+p_1p_2p_5+p_1p_2p_4p_5]+(1-\theta)[p_1p_2p_4p_5+p_1p_2p_5]] $  \\
+$ = \log \theta + \log(1-\theta) + \log[p_1p_2p_4p_5+p_1p_2p_5+p_1p_2p_4p_5] + \log[p_1p_2p_4p_5+p_1p_2p_5] $  \\
+The score function will be
+$$ S(\theta|X) =  \frac{\partial \log(L(\theta|X))}{\partial \theta} = \frac{1}{\theta}-\frac{1}{1-\theta} $$
+unbiased $L(\theta|X)=f(x,\theta)=\theta C_1+(1-\theta)C_2$, where  \\
+$C_1 = p_1p_2p_4p_5+p_1p_2p_5+p_1p_2p_4p_5 $  \\
+$C_2 = p_1p_2p_4p_5+p_1p_2p_5 $  \\
+(i) Easy to see that $f(X,\theta)$ is differentiable  in $\theta \in(0,1)$, using the bounding condition theorem \\
+$$ \frac{\partial}{\partial \theta}f(X,\theta) = C_1-C_2 $$
+let $k(n) = \left \{ \begin{array}{rcl}C_1-C_2 & n=0|n=1 \\ 0 & \mbox{else} \end{array}\right$  \\
+$\rightarrow \sum_{n\in v}V(n)K(n)=(V(0)+V(1))(C_1-C_2) < \infty$  \\
+then (ii) is satisfied  \\
+Using theorem 8.3 then SF and MVD estimate function 8.28 are unbiased.
+ 
+
+\textbf{d. Calculate the MVD estimator for (8.28) and show that it is unbiased for (8.28)} \\
+$ \frac{d}{d\theta}|_{\theta=\theta_0}{\textstyle \int h(x)f_\theta(x)\,dx} = {\textstyle \int h(x)S(\theta_0,x)f_{\theta_0}(x)\,dx}=C_{\theta_0}({\textstyle \int h(x)f_{\theta_0}^+(x)\,dx}-{\textstyle \int h(x)f_{\theta_0}^-(x)\,dx}) $  \\
+In particular when $$ S(\theta_0,x)f_{\theta_0}(x)=C_{\theta_0}(f_{\theta_0}^+(x)-f_{\theta_0}^-(x)) $$
+From tabel 7.1 $C_{\theta_0} = 1$  \\
+$$ f_{\theta_0}^+(x) = Dirac(0) = S_0 $$
+$$ f_{\theta_0}^-(x) = Dirac(1) = S_1 $$
+then $$ \frac{\partial}{\partial\theta}{\textstyle \int h(x)f_\theta(x)\,dx} = \frac{\partial}{\partial\theta}[\theta S(0)+(1-\theta)S(1)] = h(0)-h(1)  $$
+while yields the unbiased MVD estimator $$ D^{MVD}(\theta) = h(0)-h(1) $$
+Same proof in c, as the MVD was derived from SF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
