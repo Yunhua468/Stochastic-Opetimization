@@ -73,12 +73,25 @@ Same proof in c, as the MVD was derived from SF
 \textbf{(a) Calculate the Score Function for this distribution.} \\
 Because $f_\theta(x)=(x^2/2\theta^3)e^{-x/\theta}$  \\
 And $S(\theta, x)=\frac{\partial}{\partial \theta}\log(f_\theta(x))$ \\
-So: $$ S(\theta, x) = \frac{\partial}{\partial \theta}\log((x^2/2\theta^3)e^{-x/\theta}) = \frac{\frac{\partial}{\partial \theta}f_\theta(x)}{f_\theta(x)} $$
-$$ = \frac{x^2}{2\theta^3} e^{-x/\theta}\frac{x}{\theta^2}-e^{-x/\theta}\frac{3x^2}{2\theta^4} = e^{-x/\theta}\frac{x^2}{2\theta^4}(\frac{x}{\theta}-3) $$
+So: $$ S(\theta, x) = \frac{\partial}{\partial \theta}\log((x^2/2\theta^3)e^{-x/\theta}) =\frac{\partial}{\partial \theta}(\log x^2-\log 2-3\log(\theta)-\frac{x}{\theta})=\frac{-3}{\theta} + \frac{x}{\theta^2}  $$
+
+
 \textbf{(b) Verify the conditions of Theorem 8.3. What family of functions $v(.)$ can be used? Is $h$ in the family?} \\
 Given $h(x) = max(0, x-s)$ and $f_\theta(x)=(x^2/2\theta^3)e^{-x/\theta}$ \\
 (i) It is obvious that $f_\theta(x)$ is differentiable with respect to $\theta$ for all $x\in S$  \\
-(ii) 
+(ii) If $\theta\in[\theta_0, \theta_1]$, $x\geq 0$,  \\
+$|\frac{\partial}{\partial \theta}f_\theta(x)|=(x^2/2\theta^5)(x-3\theta)e^{-x/\theta} $  \\
+$\leq \frac{x^2\theta_1}{2\theta_0^5}(x-3\theta_0)\frac{1}{\theta_1}e^{-x/\theta_1}=:k(x)  $  \\
+expression(ii) in theorem 8.3 can be expressed $$\int v(x)k(x)d_x=\frac{theta_1}{2\theta_0^5}\int v(x)(x^2(x-3\theta_0)\frac{1}{\theta_1}e^{-x/\theta_1}) dx=\frac{\theta_1}{2\theta_0^5}E[v(x(\theta_1))x^2(\theta_1)(x(\theta_1)-3\theta_0)]<\infty   $$
+where $x(\theta_1)$ is an exponential rv with mean $\theta_1$  \\
+Since all moments of the exponential distribution are finite, the above holds test function $v(x)=1+x^p$, for any polynomially bounded h, thus theorem 8.3 condition are verified.
+
+
+
+
+
+
+
 
 
 
