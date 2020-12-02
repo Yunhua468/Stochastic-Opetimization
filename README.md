@@ -1,3 +1,6 @@
+# New Repo:
+https://github.com/vfrantc/covid_control
+
 # Stochastic-Opetimization
 
 This repo is SO class hws and projects.
