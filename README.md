@@ -5,7 +5,7 @@ https://github.com/vfrantc/covid_control
 
 This repo is SO class hws and projects.
 
-## Project:  
+# Project Reference:  
 Reference "Simulating COVID-19 with Cellular Automata", link:  
 https://towardsdatascience.com/simulating-covid-19-with-cellular-automata-aeb820910a9
 
@@ -16,5 +16,5 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7127728/
 https://mathworld.wolfram.com/Kermack-McKendrickModel.html  
 
 
-## CTMC:  
+# CTMC:  
 https://huntercollege.zoom.us/rec/play/yyV7HfvYNAgALtyoK81-4TbWZgR0KWdDmAcFlXrqzegNMQCVpf9ktBMoGroAIYoAslJMfA7LDYirqrRB.kSBgbQONYOBk3Ih1?continueMode=true
