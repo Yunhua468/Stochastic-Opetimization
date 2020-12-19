@@ -1,3 +1,13 @@
+# Papers: 
+STOCHASTIC APPROXIMATION FOR REGULATING CIRCADIAN CYCLES, A PRECISION MEDICINE VIEWPOINT: 
+https://github.com/Yunhua468/Stochastic-Opetimization/blob/project/Circadian.pdf 
+ 
+DATA-DRIVEN ADAPTIVE THRESHOLD CONTROL FOR BIKE SHARE SYSTEMS: 
+https://github.com/Yunhua468/Stochastic-Opetimization/blob/project/WSC2017Bikes22July-Final.pdf 
+
+Predictive Modeling for Epidemic Outbreaks: A New Approach and COVID-19 Case Study: 
+https://github.com/Yunhua468/Stochastic-Opetimization/blob/project/ChenFu2020.pdf 
+
 # New Repo For Codes:
 https://github.com/vfrantc/covid_control
 
